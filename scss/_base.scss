@@ -1,0 +1,19 @@
+/* ------------------------------- Root Rules ------------------------------- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $bg-color;
+    color: $text-color;
+    font-family: Titillium;
+    font-size: $font-size;
+}
+
+::selection {
+    background-color: darken($lead-color2, 20);
+    color: $text-color;
+}
+/* -------------------------------------------------------------------------- */

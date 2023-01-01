@@ -1,0 +1,23 @@
+@keyframes glowShadow {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 300% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes gravityText {
+    0% {
+        bottom: -30px;
+    }
+    50% {
+        bottom: -15px;
+    }
+    100% {
+        bottom: -30px;
+    }
+}

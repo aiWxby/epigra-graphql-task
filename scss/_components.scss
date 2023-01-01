@@ -1,0 +1,305 @@
+/* -------------------------------------------------------------------------- */
+/*                                   COMMON                                   */
+/* -------------------------------------------------------------------------- */
+
+.banner {
+    background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.9) 80%
+        ),
+        url('/assets/imgs/banner.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+    margin: 20px 0px;
+    position: relative;
+    @extend .radius;
+    @extend .box-shadow;
+
+    &before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background: linear-gradient(to right, $lead-color1, $lead-color2 85%);
+        background-size: 500%;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        z-index: -1;
+        animation: glowShadow 10s linear infinite;
+    }
+
+    &:after {
+        filter: blur(20px);
+    }
+
+    &__texts {
+        position: absolute;
+        text-align: center;
+        //bottom: 30px;
+        color: white;
+        animation: gravityText 2.3s linear infinite;
+        left: 50%;
+        transform: translateX(-50%) skewY(-5deg);
+    }
+    &__title {
+        font-size: 2.5rem;
+        font-family: Archivo Narrow;
+        @extend .gradient-text;
+        span {
+            text-decoration: underline;
+            text-decoration-color: darken($lead-color2, 15);
+        }
+    }
+    &__subtitle {
+        font-weight: 500;
+        color: $text-color;
+    }
+}
+
+.menu {
+    padding: 10px;
+    background-image: linear-gradient(
+        to right,
+        $component-bg-color,
+        $bg-color 50%
+    );
+    margin-top: 60px;
+    @extend .radius;
+    ul {
+        display: flex;
+        flex-direction: row;
+        a {
+            padding: 5px 20px;
+            @extend .radius;
+            @extend .transition;
+            &:hover {
+                background-color: $bg-color;
+                color: $lead-color1;
+                @extend .transition;
+            }
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+        .active {
+            background-color: $bg-color;
+            color: $lead-color1;
+        }
+    }
+}
+
+footer {
+    margin: 50px auto;
+    .tech-stack {
+        &__title {
+            @extend .gradient-text;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-family: Archivo Narrow;
+        }
+        &__container {
+            width: 100%;
+            padding: 10px 0px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        &__item {
+            background-color: $component-bg-color;
+            display: flex;
+            padding: 10px;
+            z-index: 1;
+            @extend .radius;
+            @extend .box-shadow;
+            @extend .transition;
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+            &:hover {
+                @extend .transition;
+                transform: translateY(10px);
+            }
+        }
+        &__logo {
+            height: auto;
+            width: 40px;
+            z-index: 1;
+        }
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                    PAGES                                   */
+/* -------------------------------------------------------------------------- */
+/* ---------------------------------- Index --------------------------------- */
+main {
+    .main-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 50px 0;
+        justify-content: space-between;
+        .character {
+            &-container {
+                width: 19%;
+                margin-top: 80px;
+                background-color: $component-bg-color;
+                position: relative;
+                @extend .box-shadow;
+                @extend .radius;
+            }
+            &__image {
+                position: absolute;
+                left: 50%;
+                width: 150px;
+                height: 150px;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+                img {
+                    @extend .box-shadow;
+                    @extend .radius;
+                    object-fit: cover;
+                    height: 150px;
+                    width: 150px;
+                }
+                &::before {
+                    content: attr(data-status);
+                    position: absolute;
+                    background-color: $component-bg-color;
+                    color: $text-color;
+                    padding: 5px 30px;
+                    font-size: 1rem;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translate(-50%, 50%);
+                    z-index: 2;
+                    @extend .box-shadow;
+                    @extend .radius;
+                }
+            }
+            &__infos {
+                padding: 20px;
+                padding-top: 100px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                > * {
+                    &:not(:last-child) {
+                        margin-bottom: 10px;
+                    }
+                }
+                .character__name {
+                    font-size: 1.2rem;
+                }
+                .character__btn {
+                    display: inline-block;
+                    color: darken($lead-color1, 5);
+                    background-color: $bg-color;
+                    padding: 10px 0;
+                    margin-top: 10px;
+                    text-align: center;
+                    @extend .radius;
+                    @extend .transition;
+                    &:hover {
+                        @extend .transition;
+                        background: darken($lead-color1, 12);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .pagination {
+        text-align: center;
+        span {
+            color: $lead-color1;
+        }
+        input {
+            background-color: $component-bg-color;
+            padding: 5px 20px;
+            width: 150px;
+            margin-top: 10px;
+            @extend .radius;
+        }
+        button {
+            display: block;
+            margin: auto;
+            margin-top: 10px;
+            background-color: $lead-color1;
+            padding: 2px 30px;
+            @extend .radius;
+        }
+    }
+}
+/* -------------------------------------------------------------------------- */
+/* --------------------------------- Detail --------------------------------- */
+.detail-container {
+    background-image: linear-gradient(
+        to right,
+        $component-bg-color,
+        $bg-color 50%
+    );
+    padding: 20px;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    @extend .radius;
+    .profile {
+        &-section {
+            flex: auto;
+        }
+        &__image {
+            object-fit: cover;
+            height: auto;
+            width: 300px;
+            @extend .radius;
+        }
+    }
+    .detail {
+        &-section {
+            padding-left: 30px;
+            width: 100%;
+        }
+        &__name {
+            font-size: 2rem;
+            margin-bottom: -10px;
+            background: -webkit-linear-gradient(
+                45deg,
+                $lead-color1,
+                $lead-color2 20%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        &__species {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+        &-list {
+            &__item {
+                background-color: $bg-color;
+                padding-left: 10px;
+                @extend .radius;
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+                span {
+                    color: $lead-color1;
+                }
+            }
+        }
+    }
+}
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
