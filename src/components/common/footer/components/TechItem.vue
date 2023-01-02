@@ -6,23 +6,23 @@ export default {
             techStacks: [
                 {
                     name: 'Vue',
-                    url: '/src/assets/imgs/techs/Vue.png'
+                    url: '/public/assets/imgs/techs/Vue.png'
                 },
                 {
                     name: 'SASS',
-                    url: '/src/assets/imgs/techs/Sass.png'
+                    url: '/public/assets/imgs/techs/Sass.png'
                 },
                 {
                     name: 'GraphQL',
-                    url: '/src/assets/imgs/techs/GraphQL.png'
+                    url: '/public/assets/imgs/techs/GraphQL.png'
                 },
                 {
                     name: 'Apollo',
-                    url: '/src/assets/imgs/techs/Apollo.png'
+                    url: '/public/assets/imgs/techs/Apollo.png'
                 },
                 {
                     name: 'Vite',
-                    url: '/src/assets/imgs/techs/Vite.png'
+                    url: '/public/assets/imgs/techs/Vite.png'
                 }
             ]
         }
