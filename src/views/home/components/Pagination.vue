@@ -25,7 +25,7 @@ export default {
     },
     methods: {
         goToPage() {
-            this.$router.replace('/home/' + this.pageNumber)
+            this.$router.replace({name:'home', params: { page: this.pageNumber}})
         }
     },
     watch: {
@@ -40,7 +40,7 @@ export default {
     <div class="pagination">
         <p><span>{{ pages }}</span> sayfa arasından <span>{{ this.$route.params.page }}</span>. sayfadasın.</p>
         <input @input="this.pageNumber = $event.target.value" type="text" placeholder="Sayfa belirt">
-        <a href="" @click="goToPage()"><button>Git</button></a>
+        <a href="" @click.prevent.stop="goToPage()"><button>Git</button></a>
     </div>
 </template>
 
